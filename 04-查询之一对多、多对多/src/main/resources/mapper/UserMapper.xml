@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 因为要接口绑定，所以是接口的全限定类名-->
+<mapper namespace="com.qxf.mapper.UserMapper">
+
+    <!-- 自定义结果映射：
+     id：是主键
+     property：是Java对象的属性名
+     column：是数据库中列名，或者查询中取的列的别名
+    -->
+    <resultMap id="userMap" type="User">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="isValid" column="is_valid"></result>
+
+        <!-- 一对多关联查询，使用collection，其中：
+           collection中的property属性blogs：是User类中的属性名称，对应就可以了（private List<Blog> blogs）;
+           javaType：是User类中的blogs这个属性，属于哪个Java类型，这里当然是属于java.util.List
+           ofType： 是List泛型中的类型，这里是Blog类型
+           id中的column是t_blog表的id，只是在为了避免重名冲突，查询的时候取了别名blog_id
+        -->
+        <collection property="blogs" javaType="java.util.List" ofType="Blog">
+            <id property="id" column="blog_id"></id>
+            <result property="title" column="title"></result>
+            <result property="userId" column="user_id"></result>
+        </collection>
+    </resultMap>
+
+    <!--id 与接口的方法名相同，注意：
+       这里的返回值类型不再是resultType了，而是resultMap
+       而且resultMap的值，就是上面<resultMap>标签的id属性值
+    -->
+    <select id="getUserAndBlogByUserId" parameterType="string" resultMap="userMap">
+        select u.id,u.username,u.password,u.is_valid,b.id as blog_id,b.title,b.user_id
+         from t_user u,t_blog b
+        where u.id = b.user_id
+         and u.id=#{id}
+    </select>
+
+</mapper>
