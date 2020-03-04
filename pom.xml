@@ -11,6 +11,8 @@
     <modules>
         <module>01-helloWorld</module>
         <module>02-接口绑定与CRUD实例</module>
+        <module>03-查询之一对一</module>
+        <module>04-查询之一对多</module>
     </modules>
 
     <dependencies>
