@@ -32,23 +32,23 @@ public class BindInterfaceDemo {
 //        System.out.println(user);
 
         //新增
-//        User u = new User();
-//        u.setId(UUID.randomUUID().toString().replace("-",""));
-//        u.setUsername("王五");
-//        u.setPassword("123456");
-//        u.setIsValid(1);
-//        int cnt = mapper.addUser(u);
+        User u = new User();
+        u.setId(UUID.randomUUID().toString().replace("-",""));
+        u.setUsername("王五");
+        u.setPassword("123456");
+        u.setIsValid(1);
+        int cnt = mapper.addUser(u);
 
         //修改
-//        User u2 = new User();
-//        u2.setId("123");
-//        u2.setUsername("修改后的姓名");
-//        u2.setPassword("654321");
-//        u2.setIsValid(0);
-//        mapper.updateUser(u2);
+        User u2 = new User();
+        u2.setId("123");
+        u2.setUsername("张三2");
+        u2.setPassword("654321");
+        u2.setIsValid(0);
+        mapper.updateUser(u2);
 
         //删除
-//        mapper.deleteUserById("123");
+        mapper.deleteUserById("123");
 
         //增删改，一定要提交事务，不然不起作用
         sqlSession.commit();
