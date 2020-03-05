@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 因为要接口绑定，所以是接口的全限定类名-->
+<mapper namespace="com.qxf.mapper.UserMapper">
+    <!-- 设置二级缓存 -->
+    <cache eviction="FIFO"
+           flushInterval="60000"
+           size="512"
+           readOnly="true"/>
+
+    <!--id 与接口的方法名相同-->
+    <select id="getUserById" parameterType="string" resultType="com.qxf.pojo.User" useCache="true">
+        select id,username,password,is_valid as isValid from t_user where id=#{id}
+    </select>
+    <!--id 与接口的方法名相同  insert不需要指定返回值，默认返回int，表示影响的行数-->
+    <insert id="addUser" parameterType="com.qxf.pojo.User">
+        INSERT INTO t_user(id,username,password,is_valid) VALUES(#{id},#{username},#{password},#{isValid})
+    </insert>
+    <!--id 与接口的方法名相同  update也不需要指定返回值，默认返回int，表示影响的行数-->
+    <update id="updateUser" parameterType="com.qxf.pojo.User">
+        UPDATE t_user SET username=#{username},password=#{password}
+            <if test="isValid != null">
+                ,is_valid=#{isValid}
+            </if>
+         WHERE id=#{id}
+    </update>
+    <!--id 与接口的方法名相同  delete也不需要指定返回值，默认返回int，表示影响的行数-->
+    <delete id="deleteUserById" parameterType="string">
+        DELETE FROM t_user WHERE id=#{id}
+    </delete>
+</mapper>
