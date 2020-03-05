@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>04-查询之一对多、多对多</artifactId>
+    <artifactId>05-缓存之一级缓存</artifactId>
 
 
 </project>
