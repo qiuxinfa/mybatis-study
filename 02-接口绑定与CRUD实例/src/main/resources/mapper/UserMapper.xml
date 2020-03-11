@@ -24,4 +24,9 @@
     <delete id="deleteUserById" parameterType="string">
         DELETE FROM t_user WHERE id=#{id}
     </delete>
+
+    <!-- 测试多参数情况-->
+    <select id="getUserByUsernameAndPassword" resultType="com.qxf.pojo.User">
+        select id,username,password,is_valid as isValid from t_user where username=#{param1} and password=#{param2}
+    </select>
 </mapper>

@@ -19,4 +19,6 @@ public interface UserMapper {
     int updateUser(User user);
     //删除用户
     int deleteUserById(String id);
+
+    User getUserByUsernameAndPassword(String username,String password);
 }

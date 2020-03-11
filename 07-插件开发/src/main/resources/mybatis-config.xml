@@ -3,9 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!-- 为了打印出执行的sql语句-->
     <settings>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+    <plugins>
+        <!--配置插件-->
+        <plugin interceptor="com.qxf.interceptor.MyPageInterceptor">
+            <!-- 给插件传值，一般是默认值-->
+            <property name="default.currentPage" value="1"></property>
+            <property name="default.pageSize" value="5"></property>
+        </plugin>
+    </plugins>
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>

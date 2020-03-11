@@ -15,6 +15,7 @@
         <module>04-查询之一对多、多对多</module>
         <module>05-缓存之一级缓存</module>
         <module>06-缓存之二级缓存</module>
+        <module>07-插件开发</module>
     </modules>
 
     <dependencies>
