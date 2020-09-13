@@ -32,6 +32,9 @@ public class BindInterfaceDemo {
 
         //测试多个参数的情况
         User user = mapper.getUserByUsernameAndPassword("张三2", "123456");
+        // 测试注解
+//        User user = mapper.loadUserByUsername("张三2");
+
         System.out.println(user);
 
         //新增

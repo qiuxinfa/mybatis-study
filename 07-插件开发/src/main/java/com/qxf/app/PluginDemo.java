@@ -28,7 +28,7 @@ public class PluginDemo {
         //获取接口的代理对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         //执行相应的接口方法
-        MyPage myPage = new MyPage();
+        MyPage myPage = new MyPage(2,3);
         List<User> users = mapper.getAllUserByPage(myPage);
         System.out.println(users);
         //关闭连接

@@ -35,9 +35,8 @@
     -->
     <select id="getUserAndBlogByUserId" parameterType="string" resultMap="userMap">
         select u.id,u.username,u.password,u.is_valid,b.id as blog_id,b.title,b.user_id
-         from t_user u,t_blog b
-        where u.id = b.user_id
-         and u.id=#{id}
+         from t_user u LEFT JOIN t_blog b ON u.id = b.user_id
+        where u.id=#{id}
     </select>
 
 </mapper>

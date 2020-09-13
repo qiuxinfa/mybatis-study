@@ -16,12 +16,16 @@ public class User implements Serializable{
     //一个用户，对应多篇博客
     private List<Blog> blogs;
 
+    public User(){
+        System.out.println("创建User对象...");
+    }
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
+        System.out.println("设置User对象的id");
         this.id = id;
     }
 
@@ -30,6 +34,7 @@ public class User implements Serializable{
     }
 
     public void setUsername(String username) {
+        System.out.println("设置User对象的username");
         this.username = username;
     }
 
@@ -38,6 +43,7 @@ public class User implements Serializable{
     }
 
     public void setPassword(String password) {
+        System.out.println("设置User对象的password");
         this.password = password;
     }
 
@@ -46,6 +52,7 @@ public class User implements Serializable{
     }
 
     public void setIsValid(Integer isValid) {
+        System.out.println("设置User对象的isValid");
         this.isValid = isValid;
     }
 
@@ -54,6 +61,7 @@ public class User implements Serializable{
     }
 
     public void setBlogs(List<Blog> blogs) {
+        System.out.println("设置User对象的blogs");
         this.blogs = blogs;
     }
 

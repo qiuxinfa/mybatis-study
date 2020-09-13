@@ -1,8 +1,10 @@
 package com.qxf.mapper;
 
-import com.qxf.pojo.User;
+        import com.qxf.pojo.User;
+        import org.apache.ibatis.annotations.Param;
+        import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
+        import java.util.List;
 
 
 /**
@@ -20,5 +22,8 @@ public interface UserMapper {
     //删除用户
     int deleteUserById(String id);
 
-    User getUserByUsernameAndPassword(String username,String password);
+    @Select("select * from t_user where username=#{username}")
+    User loadUserByUsername(String username);
+
+    User getUserByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 }
