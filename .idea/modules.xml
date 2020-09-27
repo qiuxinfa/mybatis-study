@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01-helloWorld/01-helloWorld.iml" filepath="$PROJECT_DIR$/01-helloWorld/01-helloWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-接口绑定与CRUD实例/02-接口绑定与CRUD实例.iml" filepath="$PROJECT_DIR$/02-接口绑定与CRUD实例/02-接口绑定与CRUD实例.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-查询之一对一/03-查询之一对一.iml" filepath="$PROJECT_DIR$/03-查询之一对一/03-查询之一对一.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-查询之一对多、多对多/04-查询之一对多、多对多.iml" filepath="$PROJECT_DIR$/04-查询之一对多、多对多/04-查询之一对多、多对多.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-缓存之一级缓存/05-缓存之一级缓存.iml" filepath="$PROJECT_DIR$/05-缓存之一级缓存/05-缓存之一级缓存.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-缓存之二级缓存/06-缓存之二级缓存.iml" filepath="$PROJECT_DIR$/06-缓存之二级缓存/06-缓存之二级缓存.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-插件开发/07-插件开发.iml" filepath="$PROJECT_DIR$/07-插件开发/07-插件开发.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-study.iml" filepath="$PROJECT_DIR$/mybatis-study.iml" />
     </modules>
   </component>

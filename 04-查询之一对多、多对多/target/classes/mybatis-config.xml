@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 为了打印出执行的sql语句-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 自定义别名 -->
+    <typeAliases>
+        <package name="com.qxf.pojo"></package>
+    </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!--  &amp; 代表特殊符号 &  -->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_test?serverTimezone=UTC&amp;useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="19930919"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+    </mappers>
+</configuration>

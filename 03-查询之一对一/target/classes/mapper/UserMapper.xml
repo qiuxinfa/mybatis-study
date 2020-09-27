@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 因为要接口绑定，所以是接口的全限定类名-->
+<mapper namespace="com.qxf.mapper.UserMapper">
+
+    <!-- 自定义结果映射：
+     id：是主键
+     property：是Java对象的属性名
+     column：是数据库中列名，或者查询中取的列的别名
+    -->
+    <resultMap id="userMap" type="User">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="isValid" column="is_valid"></result>
+
+        <!-- 一对一关联查询，使用association，其中：
+           使用association的property属性card：是User类中的属性名称，对应就可以了（private Card card）;
+           javaType：是User类中的card这个属性，属于哪个Java类型，这里当然是属性Card
+           id中的column是t_user表的card_id，当然也可以取个别名，只要对应就可以了
+        -->
+        <association property="card" javaType="Card">
+            <id property="id" column="card_id"></id>
+            <result property="cardNum" column="card_num"></result>
+            <result property="cardTime" column="card_time"></result>
+        </association>
+    </resultMap>
+
+    <!--id 与接口的方法名相同，注意：
+       这里的返回值类型不再是resultType了，而是resultMap
+       而且resultMap的值，就是上面<resultMap>标签的id属性值
+    -->
+    <select id="getUserById" parameterType="string" resultMap="userMap">
+        select u.id,u.username,u.password,u.is_valid,u.card_id,c.card_num,c.card_time
+         from t_user u,t_card c
+        where u.card_id = c.id
+         and u.id=#{id}
+    </select>
+
+</mapper>

@@ -7,10 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="01-helloWorld" />
+        <module name="02-接口绑定与CRUD实例" />
+        <module name="03-查询之一对一" />
+        <module name="04-查询之一对多、多对多" />
+        <module name="05-缓存之一级缓存" />
+        <module name="06-缓存之二级缓存" />
+        <module name="07-插件开发" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01-helloWorld" target="1.5" />
+      <module name="02-接口绑定与CRUD实例" target="1.5" />
+      <module name="03-查询之一对一" target="1.5" />
+      <module name="04-查询之一对多" target="1.5" />
+      <module name="04-查询之一对多、多对多" target="1.5" />
+      <module name="05-缓存之一级缓存" target="1.5" />
+      <module name="06-缓存之二级缓存" target="1.5" />
+      <module name="07-插件开发" target="1.5" />
       <module name="mybatis-study" target="1.5" />
     </bytecodeTargetLevel>
   </component>
