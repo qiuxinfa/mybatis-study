@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace 因为要接口绑定，所以是接口的全限定类名-->
 <mapper namespace="com.qxf.mapper.UserMapper">
+    <insert id="addBatch" >
+        INSERT INTO t_user(id,username,password,is_valid) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.username},#{item.password},#{item.isValid})
+        </foreach>
+    </insert>
     <!--id 与接口的方法名相同-->
     <select id="getUserById" parameterType="string" resultType="com.qxf.pojo.User">
         select id,username,password,is_valid as isValid from t_user where id=#{id}

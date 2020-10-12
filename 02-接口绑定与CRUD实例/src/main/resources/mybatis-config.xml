@@ -13,9 +13,9 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <!--  &amp; 代表特殊符号 &  -->
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_test?serverTimezone=UTC&amp;useSSL=false"/>
+                <property name="url" value="jdbc:mysql://localhost:3309/mybatis_test?serverTimezone=UTC&amp;useSSL=false"/>
                 <property name="username" value="root"/>
-                <property name="password" value="19930919"/>
+                <property name="password" value="root"/>
             </dataSource>
         </environment>
     </environments>

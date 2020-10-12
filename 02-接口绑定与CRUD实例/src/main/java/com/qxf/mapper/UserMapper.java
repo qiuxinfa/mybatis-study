@@ -13,6 +13,7 @@ package com.qxf.mapper;
  * @Description: com.qxf.mapper
  */
 public interface UserMapper {
+    int addBatch(List<User> list);
     //根据id查询
     User getUserById(String id);
     //新增用户
